@@ -1,17 +1,11 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { connect } from "react-redux";
-class Usuarios extends Component {
-  /*
-  async componentDidMount() {
-    const respuesta = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
 
-    this.setState({
-      usuarios: respuesta.data,
-    });
-  }*/
+import { connect } from "react-redux";
+import * as usuariosActions from "../../actions/usuariosActions";
+class Usuarios extends Component {
+  componentDidMount() {
+    this.props.traerTodos();
+  }
   ponerFilas = () =>
     this.props.usuarios.map((usuario) => (
       <tr key={usuario.id}>
@@ -43,6 +37,4 @@ const mapStateToProps = (reducers) => {
   return reducers.usuariosReducer;
 };
 
-export default connect(mapStateToProps, {
-  /*Actions*/
-})(Usuarios);
+export default connect(mapStateToProps, usuariosActions)(Usuarios);
