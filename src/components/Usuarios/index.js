@@ -16,6 +16,7 @@ class Usuarios extends Component {
     ));
 
   render() {
+    console.log(this.props.cargando);
     return (
       <div>
         <table className="tabla">
