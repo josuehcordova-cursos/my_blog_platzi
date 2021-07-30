@@ -1,5 +1,10 @@
 import axios from "axios";
-import { TRAER_TODOS, CARGANDO, ERROR } from "../types/publicacionesTypes";
+import {
+  TRAER_TODOS,
+  CARGANDO,
+  ERROR,
+  TRAER_POR_USUARIO,
+} from "../types/publicacionesTypes";
 
 export const traerTodos = () => async (dispatch) => {
   dispatch({
@@ -21,4 +26,17 @@ export const traerTodos = () => async (dispatch) => {
       payload: "Algo salió mal, intente más tarde.",
     });
   }
+};
+
+export const traerPorUsuario = (key) => async (dispatch, getState) => {
+  const { usuarios } = getState().usuariosReducer;
+  const usuarioId = usuarios[key].id;
+  const respuesta = await axios.get(
+    `https://jsonplaceholder.typicode.com/posts?userId=${usuarioId}`
+  );
+
+  dispatch({
+    type: TRAER_TODOS,
+    payload: respuesta.data,
+  });
 };
