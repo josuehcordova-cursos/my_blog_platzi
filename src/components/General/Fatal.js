@@ -14,15 +14,7 @@ const Fatal = (props) => {
         </span>
         <span>4</span>
       </section>
-      <div className="link-container">
-        <a
-          target="_blank"
-          href="https://www.silocreativo.com/en/creative-examples-404-error-css/"
-          className="more-link"
-        >
-          Visit the original article
-        </a>
-      </div>
+      <div className="link-container">Visit the original article</div>
     </React.Fragment>
   );
   // return <h2 classNameName="center rojo">{props.mensaje}</h2>;
